@@ -67,7 +67,7 @@ const Characters: React.FC = () => {
     <div>
       <div className='my-5'>
         <input
-          className='bg-transparent border-b-2 outline-none'
+          className='w-[50%] p-2 outline-none my-3 bg-green-400 bg-opacity-20 rounded-[50px] font-fontRegular text-2xl text-[#08BAE3]'
           type="text"
           placeholder="Search characters..."
           value={searchQuery}
@@ -75,13 +75,13 @@ const Characters: React.FC = () => {
         />
       </div>
 
-      <div className='overflow-y-auto h-[82vh]'>
+      <div className='overflow-y-auto h-[80vh]'>
         <div className='grid grid-cols-2 gap-5'>
           {filteredCharacters?.map((character: any) => (
             <div
               key={character.id}
               onClick={() => handleCharacterClick(character.id)}
-              className='cursor-pointer flex items-center gap-3 backdrop-blur-sm'
+              className='cursor-pointer flex items-center gap-3 bg-green-400 bg-opacity-10 backdrop-blur-sm rounded-[20px] hover:bg-opacity-20'
             >
               <img src={character.image} alt={character.name} className='rounded-l-[20px]' />
               <div>

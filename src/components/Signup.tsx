@@ -42,11 +42,11 @@ const SignUp: React.FC = () => {
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
           />
-          <button type="submit" className='bg-[#659C2C] border-2 border-[#40B6CB] p-1 rounded-[20px]'>Sign Up</button>
+          <button type="submit" className='bg-green-900 bg-opacity-80 border-2 border-[#40B6CB] p-1 rounded-[20px] hover:bg-opacity-100 hover:drop-shadow-[0_0_3px_rgb(192_223_64)]'>Sign Up</button>
         </form>
         {error && <div>Error: {error}</div>}
         <p>
-          Already have an account? <a href="/login" className='text-[#08BAE3]'>Login here</a>
+          Already have an account? <a href="/login" className='text-[#08BAE3] hover:drop-shadow-[0_1px_2px_rgb(192_223_64)]'>Login here</a>
         </p>
       </div>
     </div>

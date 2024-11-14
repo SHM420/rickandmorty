@@ -25,7 +25,7 @@ const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => 
 const App: React.FC = () => {
   return (
     <div className="bg-[url('./assets/background.png')] bg-cover bg-center overflow-hidden h-screen">
-      <div className="container mx-auto text-white ">
+      <div className="container mx-auto text-white">
         <GlobalProvider>
           <QueryClientProvider client={queryClient}>
             <Router>

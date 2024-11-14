@@ -61,8 +61,8 @@ const SingleEpisode: React.FC = () => {
             <li 
               key={character.id}
               onClick={() => handleCharacterClick(character.id)}
-              className='cursor-pointer flex items-center gap-5 backdrop-blur-sm'>
-              <img src={character?.image} alt={character?.name} className='rounded-l-[20px]' />
+              className='cursor-pointer flex items-center gap-5 backdrop-blur-sm bg-green-400 bg-opacity-10 rounded-[20px] hover:bg-opacity-20'>
+              <img src={character?.image} alt={character?.name} className='w-[50%] rounded-l-[20px]' />
               <h3 className='text-5xl font-fontRegular text-[#08BAE3] drop-shadow-[0_1px_2px_rgb(192_223_64)]'>{character?.name}</h3>
             </li>
           ))}
