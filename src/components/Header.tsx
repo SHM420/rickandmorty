@@ -20,10 +20,10 @@ const Header: React.FC = () => {
         </Link>
         <div className='flex gap-5'>
           <li>
-            <Link to="/characters">Characters</Link>
+            <Link to="/characters" className='text-2xl font-fontRegular text-[#08BAE3] drop-shadow-[0_1px_2px_rgb(192_223_64)]'>Characters</Link>
           </li>
           <li>
-            <button onClick={handleLogout}>Logout</button>
+            <button onClick={handleLogout} className='text-2xl font-fontRegular text-[#08BAE3] drop-shadow-[0_1px_2px_rgb(192_223_64)]'>Logout</button>
           </li>
         </div>
       </ul>
