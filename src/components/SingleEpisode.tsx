@@ -48,21 +48,26 @@ const SingleEpisode: React.FC = () => {
 
   return (
     <div>
-      <h3>{episode?.name}</h3>
-      <p>Status: {episode?.air_date}</p>
-      <p>Gender: {episode?.episode}</p>
+      <div className='text-xl'>
+        <h3 className='text-5xl font-fontRegular text-[#08BAE3] drop-shadow-[0_1px_2px_rgb(192_223_64)]'>{episode?.name}</h3>
+        <p>Status: {episode?.air_date}</p>
+        <p>Gender: {episode?.episode}</p>
+      </div>
 
-      <h4>Characters:</h4>
-      <ul>
-        {characters?.map((character: any) => (
-          <li key={character.id}
-          onClick={() => handleCharacterClick(character.id)}
-          style={{ cursor: 'pointer' }}>
-            <h3>{character?.name}</h3>
-            <img src={character?.image} alt={character?.name} />
-          </li>
-        ))}
-      </ul>
+      <h4 className='mt-5 mb-2 text-xl'>Characters:</h4>
+      <div className='overflow-y-auto h-[70vh]'>
+        <ul className='grid grid-cols-3 gap-5'>
+          {characters?.map((character: any) => (
+            <li 
+              key={character.id}
+              onClick={() => handleCharacterClick(character.id)}
+              className='cursor-pointer flex items-center gap-5 backdrop-blur-sm'>
+              <img src={character?.image} alt={character?.name} className='rounded-l-[20px]' />
+              <h3 className='text-5xl font-fontRegular text-[#08BAE3] drop-shadow-[0_1px_2px_rgb(192_223_64)]'>{character?.name}</h3>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

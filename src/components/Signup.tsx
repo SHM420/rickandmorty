@@ -3,8 +3,8 @@ import { useGlobalContext } from '../GlobalContext';
 import { useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png';
 
-const Login: React.FC = () => {
-  const { login } = useGlobalContext();
+const SignUp: React.FC = () => {
+  const { signup } = useGlobalContext();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
@@ -13,7 +13,7 @@ const Login: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await login(email, password);
+      await signup(email, password);
       navigate('/characters');
     } catch (err: any) {
       setError(err.message);
@@ -24,7 +24,7 @@ const Login: React.FC = () => {
     <div className='h-screen flex flex-col items-center justify-center gap-5'>
       <div className='flex flex-col items-center'>
         <img src={logo} className='w-[30vw]' />
-        <h3 className='text-6xl font-fontRegular text-[#08BAE3] drop-shadow-[0_1px_2px_rgb(192_223_64)]'>Login</h3>
+        <h3 className='text-6xl font-fontRegular text-[#08BAE3] drop-shadow-[0_1px_2px_rgb(192_223_64)]'>SignUp</h3>
       </div>
       <div className='flex items-center justify-center flex-col gap-5 w-[30vw] h-[30vh] rounded-[10px] bg-sky-300 bg-opacity-10 backdrop-blur-sm'>
         <form onSubmit={handleSubmit} className='flex flex-col gap-5 w-[60%]'>
@@ -42,15 +42,15 @@ const Login: React.FC = () => {
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
           />
-          <button type="submit" className='bg-[#659C2C] border-2 border-[#08BAE3] p-1 rounded-[20px]'>Login</button>
+          <button type="submit" className='bg-[#659C2C] border-2 border-[#40B6CB] p-1 rounded-[20px]'>Sign Up</button>
         </form>
         {error && <div>Error: {error}</div>}
         <p>
-          Don't have an account? <a href="/signup" className='text-[#08BAE3]'>Sign Up here</a>
+          Already have an account? <a href="/login" className='text-[#08BAE3]'>Login here</a>
         </p>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default SignUp;

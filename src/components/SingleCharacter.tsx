@@ -44,37 +44,43 @@ const SingleCharacter: React.FC = () => {
   if (episodesError) return <div>Error loading episodes</div>;
 
   return (
-    <div>
-      <h3>{character?.name}</h3>
-      <img src={character?.image} alt={character?.name} />
-      <p>Status: {character?.status}</p>
-      <p>Gender: {character?.gender}</p>
-      <p>Species: {character?.species}</p>
-      <p
-        key={`location-${character?.id}`}
-        onClick={() => navigate(`/location/${locationId}`)}
-        style={{ cursor: 'pointer' }}
-      >
-        Location: {character?.location?.name}
-      </p>
-      <p>Origin: {character?.origin?.name}</p>
+    <div className='h-screen flex items-start justify-center gap-10'>
+      <div className='flex items-center gap-5'>
+        <img src={character?.image} alt={character?.name} className='w-[400px] h-[400px] rounded-[20px]' />
+        <div className='text-lg'>
+          <h3 className='text-5xl font-fontRegular text-[#08BAE3] drop-shadow-[0_1px_2px_rgb(192_223_64)]'>{character?.name}</h3>
+          <p>Status: {character?.status}</p>
+          <p>Gender: {character?.gender}</p>
+          <p>Species: {character?.species}</p>
+          <p
+            key={`location-${character?.id}`}
+            onClick={() => navigate(`/location/${locationId}`)}
+            style={{ cursor: 'pointer' }}
+          >
+            Location: {character?.location?.name}
+          </p>
+          <p>Origin: {character?.origin?.name}</p>
+        </div>
+      </div>
 
-      <h4>Episodes:</h4>
-      {episodesLoading ? (
-        <div>Loading episodes...</div>
-      ) : (
-        <ul>
-          {episodes?.map((episode: any) => (
-            <li
-              key={`episode-${episode?.id}`}
-              onClick={() => navigate(`/episode/${episode.id}`)}
-              style={{ cursor: 'pointer' }}
-            >
-              <strong>{episode.name}</strong> - {episode.air_date} - {episode.episode}
-            </li>
-          ))}
-        </ul>
-      )}
+      <div className='max-h-[85%] backdrop-blur-sm pb-5 px-5 overflow-y-auto'>
+        <h4 className='text-2xl'>Episodes:</h4>
+        {episodesLoading ? (
+          <div>Loading episodes...</div>
+        ) : (
+          <ul>
+            {episodes?.map((episode: any) => (
+              <li
+                key={`episode-${episode?.id}`}
+                onClick={() => navigate(`/episode/${episode.id}`)}
+                style={{ cursor: 'pointer' }}
+              >
+                <strong className='text-lg'>{episode.name}</strong> - {episode.air_date} - {episode.episode}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 };

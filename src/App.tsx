@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import { GlobalProvider } from './GlobalContext';
 import Header from './components/Header';
 import Login from './components/Login';
-import SignUp from './components/Singup';
+import SignUp from './components/Signup';
 import Characters from './components/Characters';
 import SingleCharacter from './components/SingleCharacter';
 import SingleEpisode from './components/SingleEpisode';
@@ -24,53 +24,57 @@ const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => 
 
 const App: React.FC = () => {
   return (
-    <GlobalProvider>
-      <QueryClientProvider client={queryClient}>
-        <Router>
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route
-              path="/characters"
-              element={
-                <PrivateRoute>
-                  <Header />
-                  <Characters />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/character/:id"
-              element={
-                <PrivateRoute>
-                  <Header />
-                  <SingleCharacter />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/episode/:id"
-              element={
-                <PrivateRoute>
-                  <Header />
-                  <SingleEpisode />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/location/:id"
-              element={
-                <PrivateRoute>
-                  <Header />
-                  <SingleLocation />
-                </PrivateRoute>
-              }
-            />
-          </Routes>
-        </Router>
-      </QueryClientProvider>
-    </GlobalProvider>
+    <div className="bg-[url('./assets/background.png')] bg-cover bg-center overflow-hidden h-screen">
+      <div className="container mx-auto text-white ">
+        <GlobalProvider>
+          <QueryClientProvider client={queryClient}>
+            <Router>
+              <Routes>
+                <Route path="/" element={<Login />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<SignUp />} />
+                <Route
+                  path="/characters"
+                  element={
+                    <PrivateRoute>
+                      <Header />
+                      <Characters />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="/character/:id"
+                  element={
+                    <PrivateRoute>
+                      <Header />
+                      <SingleCharacter />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="/episode/:id"
+                  element={
+                    <PrivateRoute>
+                      <Header />
+                      <SingleEpisode />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="/location/:id"
+                  element={
+                    <PrivateRoute>
+                      <Header />
+                      <SingleLocation />
+                    </PrivateRoute>
+                  }
+                />
+              </Routes>
+            </Router>
+          </QueryClientProvider>
+        </GlobalProvider>
+      </div>
+    </div>
   );
 };
 

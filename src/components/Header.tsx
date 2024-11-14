@@ -1,6 +1,7 @@
 import React from 'react';
 import { useGlobalContext } from '../GlobalContext';
 import { Link, useNavigate } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 const Header: React.FC = () => {
     const { logout } = useGlobalContext();
@@ -12,18 +13,21 @@ const Header: React.FC = () => {
   };
 
   return (
-    <div>
-      <nav>
-        <ul className='container mx-auto flex items-center justify-between'>
+    <nav className='my-5'>
+      <ul className='flex items-center justify-between'>
+        <Link to="/characters">
+          <img src={logo} className="h-10 w-auto" />
+        </Link>
+        <div className='flex gap-5'>
           <li>
             <Link to="/characters">Characters</Link>
           </li>
           <li>
             <button onClick={handleLogout}>Logout</button>
           </li>
-        </ul>
-      </nav>
-    </div>
+        </div>
+      </ul>
+    </nav>
   );
 };
 

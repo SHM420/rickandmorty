@@ -65,10 +65,9 @@ const Characters: React.FC = () => {
 
   return (
     <div>
-      <h3>Characters List</h3>
-      
-      <div>
+      <div className='my-5'>
         <input
+          className='bg-transparent border-b-2 outline-none'
           type="text"
           placeholder="Search characters..."
           value={searchQuery}
@@ -76,32 +75,36 @@ const Characters: React.FC = () => {
         />
       </div>
 
-      <div>
-        {filteredCharacters?.map((character: any) => (
-          <div
-            key={character.id}
-            onClick={() => handleCharacterClick(character.id)}
-            style={{ cursor: 'pointer' }}
-          >
-            <h4>{character.name}</h4>
-            <img src={character.image} alt={character.name} />
-            <p>Status: {character.status}</p>
-            <p>Gender: {character.gender}</p>
-            <p>Species: {character.species}</p>
-            <p>
-              Location Name:
-              <a href={character.location?.name}> {character.location?.name}</a>
-            </p>
-            <p>
-              Origin Name:
-              <a href={character.origin?.url}> {character.origin?.name}</a>
-            </p>
-          </div>
-        ))}
-      </div>
-      
-      <div ref={loadMoreRef} style={{ height: '20px', margin: '10px' }}>
-        {isFetchingNextPage ? 'Loading more characters...' : ''}
+      <div className='overflow-y-auto h-[82vh]'>
+        <div className='grid grid-cols-2 gap-5'>
+          {filteredCharacters?.map((character: any) => (
+            <div
+              key={character.id}
+              onClick={() => handleCharacterClick(character.id)}
+              className='cursor-pointer flex items-center gap-3 backdrop-blur-sm'
+            >
+              <img src={character.image} alt={character.name} className='rounded-l-[20px]' />
+              <div>
+                <h2 className='text-5xl font-fontRegular text-[#08BAE3] drop-shadow-[0_1px_2px_rgb(192_223_64)]'>{character.name}</h2>
+                <p>Status: {character.status}</p>
+                <p>Gender: {character.gender}</p>
+                <p>Species: {character.species}</p>
+                <p>
+                  Location Name:
+                  <a href={character.location?.name}> {character.location?.name}</a>
+                </p>
+                <p>
+                  Origin Name:
+                  <a href={character.origin?.url}> {character.origin?.name}</a>
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        <div ref={loadMoreRef} style={{ height: '20px', margin: '10px' }}>
+          {isFetchingNextPage ? 'Loading more characters...' : ''}
+        </div>
       </div>
     </div>
   );
