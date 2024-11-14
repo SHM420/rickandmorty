@@ -12,9 +12,9 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header>
+    <div>
       <nav>
-        <ul>
+        <ul className='container mx-auto flex items-center justify-between'>
           <li>
             <Link to="/characters">Characters</Link>
           </li>
@@ -23,7 +23,7 @@ const Header: React.FC = () => {
           </li>
         </ul>
       </nav>
-    </header>
+    </div>
   );
 };
 

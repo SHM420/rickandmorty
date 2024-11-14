@@ -5,6 +5,9 @@ import Header from './components/Header';
 import Login from './components/Login';
 import SignUp from './components/Singup';
 import Characters from './components/Characters';
+import SingleCharacter from './components/SingleCharacter';
+import SingleEpisode from './components/SingleEpisode';
+import SingleLocation from './components/SingleLocation';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const queryClient = new QueryClient();
@@ -34,6 +37,33 @@ const App: React.FC = () => {
                 <PrivateRoute>
                   <Header />
                   <Characters />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/character/:id"
+              element={
+                <PrivateRoute>
+                  <Header />
+                  <SingleCharacter />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/episode/:id"
+              element={
+                <PrivateRoute>
+                  <Header />
+                  <SingleEpisode />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/location/:id"
+              element={
+                <PrivateRoute>
+                  <Header />
+                  <SingleLocation />
                 </PrivateRoute>
               }
             />

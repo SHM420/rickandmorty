@@ -13,6 +13,10 @@ interface GlobalContextType {
   logout: () => Promise<void>;
 }
 
+interface GlobalProviderProps {
+  children: ReactNode;
+}
+
 const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
 
 export const useGlobalContext = (): GlobalContextType => {
@@ -22,10 +26,6 @@ export const useGlobalContext = (): GlobalContextType => {
   }
   return context;
 };
-
-interface GlobalProviderProps {
-  children: ReactNode;
-}
 
 export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
   const [userData, setUserData] = useState<UserData | null>(null);
